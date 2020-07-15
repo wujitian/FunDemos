@@ -1,0 +1,13 @@
+# python_change_version.txt
+# Created Time: 2019-03-10 15:32:55
+# Last modified: 2019-03-10 15:34:37
+#
+
+install:
+update-alternatives --install /usr/bin/python python /opt/python3.7/bin/python3.7 1
+
+list:
+update-alternatives --list python
+
+change:
+update-alternatives --config python

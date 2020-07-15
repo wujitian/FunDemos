@@ -1,0 +1,62 @@
+Create Git Repo
+1.	在 linux 上面新建 git 账户：sudo adduser git ，然后设置一下git账户的密码，这个随便
+2.	切换到 git 帐号的 home 目录，执行一下命令
+3.	eg. mkdir project-dir-name
+cd project-dir-name
+git --bare init --shared 
+
+
+//////////////////////////////***split line***//////////////////////////////
+
+du –sh *                // 查看当前目录下每一个文件或文件夹的大小
+du –sh dir-name   // 查看 dir-name 文件或者文件夹的大小
+du –sh .               // 查看 . 当前目录的所有文件及文件夹所占用的大小
+
+
+//////////////////////////////***split line***//////////////////////////////
+
+vim cmd
+
+1.	在系统中安装 ctags / cscope 这两个软件后，再运行以下命令即可在 vim 中实现跳转
+
+Ctags: 
+
+    ctags * -R \
+              ./main.cpp \   这下面几行都是你要建立 跳转tag的文件或文件夹
+              ./srcs/ \
+              ./dvbdattest/ \
+              --c++-kinds=+p --fields=+iaS --extra=+q
+
+Cscope:
+
+    DIR=./srcs/
+    echo "cscope DIR = $DIR"
+    find $DIR -name "*.hpp"     \
+              -o -name "*.h"    \
+              -o -name "*.cpp"  \
+              -o -name "*.c"    \
+              -o -name "*.java" \
+              -o -name "*.aidl" \
+              >> cscope.files
+
+cscope -Rbkq -i cscope.files
+
+
+2.	如果代码有更新，需要在你要跳转之前重新执行以上命令更新一下 跳转tag，这样跳转位置才会正确
+Ctrl + ]
+Ctrl + t
+
+Cscope related cmds:
+Ctrl + 2  + s : ctrl按2 后不要松手再按s
+:cw 可以查看上面命令的结果
+然后就可以选择一个结果按enter 就可以跳转到你要跳转的位置
+
+
+Ctrl + w + h/j/k/l 中方向任意一个，就可以把光标跳转到不同方向的窗口中
+
+ggvG=    全文对齐
+
+:Te 新建标签页
+:Ex 或 :E 在当前标签页浏览目录
+:gt 右移到右边标签页
+:gT 左移到左边标签页
