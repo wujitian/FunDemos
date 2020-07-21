@@ -3,7 +3,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 
 set(TARGET_NAME example)
 
-file(GLOB SRC_LIST example4.c)
+#file(GLOB SRC_LIST red_example_1-1.cpp)
+file(GLOB SRC_LIST example8.c)
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 
@@ -17,7 +18,7 @@ set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -std=c++11)
 ADD_EXECUTABLE(${TARGET_NAME} ${SRC_LIST})
 
 target_link_libraries(${TARGET_NAME}
-    -lGL -lGLU -lglut
+    -lGL -lGLU -lglut -lm
 )
 
 
