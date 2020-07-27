@@ -3,8 +3,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 
 set(TARGET_NAME example)
 
-file(GLOB SRC_LIST src/glad.c red_book_example_1-1.cpp)
-#file(GLOB SRC_LIST example14.c)
+file(GLOB SRC_LIST opengl_version.c)
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 
@@ -17,13 +16,8 @@ set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -std=c++11 )
 
 ADD_EXECUTABLE(${TARGET_NAME} ${SRC_LIST})
 
-include_directories(
-    ./include
-)
-
-#-lGL -lGLU -lglut -lm -lX11 -lXrandr -lXxf86vm -lXcursor -lXinerama -ldl
 target_link_libraries(${TARGET_NAME}
-    -lGL -lGLU -lglut -lm -ldl
+    -lGL -lGLU -lglut -lm
 )
 
 
