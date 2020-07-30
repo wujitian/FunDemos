@@ -3,7 +3,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 
 set(TARGET_NAME example)
 
-file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_1-1.cpp)
+#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_1-1.cpp)
+file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-drawcommands.cpp)
 #file(GLOB SRC_LIST example14.c)
 
 set(HELLO_BINARY_DIR "FabioKong test.")
@@ -23,11 +24,14 @@ ADD_EXECUTABLE(${TARGET_NAME} ${SRC_LIST})
 
 include_directories(
     ./include
+    ../glfw-3.3.2/include
 )
 
 #-lGL -lGLU -lglut -lm -lX11 -lXrandr -lXxf86vm -lXcursor -lXinerama -ldl
 target_link_libraries(${TARGET_NAME}
     -lGL -lGLU -lglut -lm -ldl -lGLEW
 )
+
+link_libraries(../glfw-3.3.2/build/src/libglfw3.a)
 
 
