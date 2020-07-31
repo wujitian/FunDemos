@@ -36,10 +36,25 @@ protected:
 public:
     void MainLoop(void);
 
-    virtual void Initialize(const char * title = 0);
+    virtual void Initialize(const char * title = 0) 
+    {
+        glutInitDisplayMode(GLUT_RGBA);
+        glutInitWindowSize(512, 512);
+        glutInitContextVersion(3, 3);
+        glutInitContextProfile(GLUT_CORE_PROFILE);
+        glutCreateWindow(title);
+
+        glewExperimental = GL_TRUE;
+        if (glewInit())
+        {
+            cerr << "Unable to initialze GLEW ... exiting" << endl;
+            exit(EXIT_FAILURE);
+        }
+    }
 
     virtual void Display(bool auto_redraw = true)
     {
+        glFlush();
         glfwSwapBuffers(m_pWindow);
     }
 
@@ -68,22 +83,8 @@ public:                                                     \
 };
 
 #ifdef _DEBUG
-//*
 #define DEBUG_OUTPUT_CALLBACK                                                   \
 void APIENTRY VermilionApplication::DebugOutputCallback(GLenum source,          \
-                                                         GLenum type,           \
-                                                         GLuint id,             \
-                                                         GLenum severity,       \
-                                                         GLsizei length,        \
-                                                         const GLchar* message, \
-                                                         GLvoid* userParam)     \
-{                                                                               \
-    OutputDebugStringA(message);                                                \
-    OutputDebugStringA("\n");                                                   \
-}
-/*/
-#define DEBUG_OUTPUT_CALLBACK                                                   \
-void APIENTRY VermilionApplication::DebugOutputCallback(GLenum source,         \
                                                          GLenum type,           \
                                                          GLuint id,             \
                                                          GLenum severity,       \
@@ -97,7 +98,6 @@ void APIENTRY VermilionApplication::DebugOutputCallback(GLenum source,         \
                           "SEVERITY(0x%04X), \"%s\"\n",\
            source, type, id, severity, message);\
 }
-*/
 #else
 #define DEBUG_OUTPUT_CALLBACK
 #endif
@@ -122,6 +122,7 @@ void VermilionApplication::MainLoop(void)                   \
                                                             \
 MAIN_DECL                                                   \
 {                                                           \
+    glutInit(&argc, argv);                                  \
     VermilionApplication * app = appclass::Create();        \
                                                             \
     app->Initialize(title);                                 \

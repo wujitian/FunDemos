@@ -1,6 +1,9 @@
 #ifndef __VGL_H__
 #define __VGL_H__
 
+#include <GL/glew.h>
+#include <GL/glut.h>
+#include <GL/freeglut_ext.h>
 //#include <GL3/gl3.h>
 //#include <GL3/gl3w.h>
 
