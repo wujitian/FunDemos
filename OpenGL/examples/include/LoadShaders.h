@@ -35,6 +35,8 @@ typedef struct {
 
 GLuint LoadShaders(ShaderInfo*);
 
+void vglAttachShaderSource(GLuint prog, GLenum type, const char * source);
+
 //----------------------------------------------------------------------------
 
 #ifdef __cplusplus

@@ -1,6 +1,8 @@
 #ifndef __VAPP_H__
 #define __VAPP_H__
 
+#include <iostream>
+#include <sys/time.h>
 #include "vgl.h"
 
 class VermilionApplication
@@ -38,6 +40,7 @@ public:
 
     virtual void Initialize(const char * title = 0) 
     {
+        gettimeofday(&m_appStartTime, nullptr);
         glutInitDisplayMode(GLUT_RGBA);
         glutInitWindowSize(512, 512);
         glutInitContextVersion(3, 3);
@@ -47,7 +50,7 @@ public:
         glewExperimental = GL_TRUE;
         if (glewInit())
         {
-            cerr << "Unable to initialze GLEW ... exiting" << endl;
+            std::cerr << "Unable to initialze GLEW ... exiting" << std::endl;
             exit(EXIT_FAILURE);
         }
     }

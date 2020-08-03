@@ -126,6 +126,32 @@ LoadShaders(ShaderInfo* shaders)
     return program;
 }
 
+void vglAttachShaderSource(GLuint prog, GLenum type, const char * source)
+{
+    GLuint sh;
+
+    sh = glCreateShader(type);
+    glShaderSource(sh, 1, &source, NULL);
+    glCompileShader(sh);
+    //char buffer[4096];
+    //glGetShaderInfoLog(sh, sizeof(buffer), NULL, buffer);
+    GLint compiled;
+    glGetShaderiv( sh, GL_COMPILE_STATUS, &compiled );
+    if ( !compiled ) {
+#ifdef _DEBUG
+        GLsizei len;
+        glGetShaderiv( sh, GL_INFO_LOG_LENGTH, &len );
+
+        GLchar* log = new GLchar[len+1];
+        glGetShaderInfoLog( sh, len, &len, log );
+        std::cerr << "Shader compilation failed: " << log << std::endl;
+        delete [] log;
+#endif /* DEBUG */
+    }
+    glAttachShader(prog, sh);
+    glDeleteShader(sh);
+}
+
 //----------------------------------------------------------------------------
 #ifdef __cplusplus
 }
