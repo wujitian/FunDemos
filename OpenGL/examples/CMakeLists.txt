@@ -7,7 +7,8 @@ set(TARGET_NAME example)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_1-1.cpp)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-drawcommands.cpp)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-primitiverestart.cpp)
-file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-instancing.cpp)
+#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-instancing.cpp)    # not finish
+file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_04-gouraud.cpp)    # not finish
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 
