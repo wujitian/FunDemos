@@ -11,7 +11,8 @@ set(TARGET_NAME example)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_04-gouraud.cpp)    # not finish
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-load-texture.cpp) 
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-multitexture.cpp) 
-file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-cubemap.cpp) 
+#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-cubemap.cpp) 
+file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_09-teapot.cpp) 
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 

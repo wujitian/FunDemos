@@ -127,6 +127,7 @@ void MultiTextureExample::Initialize(const char * title)
 
     vglUnloadImage(&image);
 }
+
 void MultiTextureExample::Display(bool auto_redraw)
 {
     float t = float(app_time() & 0x3FFF) / float(0x3FFF);
@@ -160,6 +161,7 @@ void MultiTextureExample::Finalize(void)
     glDeleteVertexArrays(1, &vao);
     glDeleteBuffers(1, &quad_vbo);
 }
+
 void MultiTextureExample::Resize(int width, int height)
 {
     glViewport(0, 0 , width, height);
