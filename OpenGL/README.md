@@ -16,3 +16,10 @@ glfw的编译过程:
 sudo ln -s libglfw.so.3.3 /usr/lib/libglfw.so.3
 sudo ln -s /usr/lib/libglfw.so /usr/lib/libglfw.so.3
 
+如何编译带有debug信息的libglfw.so:
+先建立build文件夹，然后进入build中执行cmake ..
+然后修改src/CMakeFiles/glfw.dir/flags.make文件
+在C_FLAGS中加入"-O0 -Wall -g2 -ggdb"
+然后在make -j4
+这样生成的就是带有debug信息的libglfw.so了
+

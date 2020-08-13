@@ -5,6 +5,7 @@ set(TARGET_NAME example)
 
 #file(GLOB SRC_LIST example14.c)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_1-1.cpp)
+file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_01-keypress.cpp)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-drawcommands.cpp)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-primitiverestart.cpp)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-instancing.cpp)    # not finish
@@ -12,7 +13,7 @@ set(TARGET_NAME example)
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-load-texture.cpp) 
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-multitexture.cpp) 
 #file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-cubemap.cpp) 
-file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_09-teapot.cpp) 
+#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_09-teapot.cpp) 
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 

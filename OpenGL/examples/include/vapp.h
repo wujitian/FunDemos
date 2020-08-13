@@ -38,21 +38,56 @@ protected:
 public:
     void MainLoop(void);
 
+    /* ***** ***** ***** */
+    // Initialize() part 1, use glut to create window.
+    /* ***** ***** ***** */
+    //virtual void Initialize(const char * title = 0) 
+    //{
+    //    gettimeofday(&m_appStartTime, nullptr);
+    //    glutInitDisplayMode(GLUT_RGBA);
+    //    glutInitWindowSize(512, 512);
+    //    glutInitContextVersion(3, 3);
+    //    glutInitContextProfile(GLUT_CORE_PROFILE);
+    //    glutCreateWindow(title);
+
+    //    glewExperimental = GL_TRUE;
+    //    if (glewInit())
+    //    {
+    //        std::cerr << "Unable to initialze GLEW ... exiting" << std::endl;
+    //        exit(EXIT_FAILURE);
+    //    }
+    //}
+
+    /* ***** ***** ***** */
+    // Initialize() part 2, use glfw to create window. support key callback.
+    /* ***** ***** ***** */
     virtual void Initialize(const char * title = 0) 
     {
         gettimeofday(&m_appStartTime, nullptr);
-        glutInitDisplayMode(GLUT_RGBA);
-        glutInitWindowSize(512, 512);
-        glutInitContextVersion(3, 3);
-        glutInitContextProfile(GLUT_CORE_PROFILE);
-        glutCreateWindow(title);
 
+        glfwInit();
+
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+        m_pWindow = glfwCreateWindow(800, 600, title ? title : "OpenGL Application", nullptr, nullptr);
+        glfwSetWindowUserPointer(m_pWindow, this);
+        glfwSetWindowSizeCallback(m_pWindow, window_size_callback);
+        glfwSetKeyCallback(m_pWindow, key_callback);
+        glfwSetCharCallback(m_pWindow, char_callback);
+
+        glfwMakeContextCurrent(m_pWindow);
+
+        //gl3wInit();
         glewExperimental = GL_TRUE;
         if (glewInit())
         {
             std::cerr << "Unable to initialze GLEW ... exiting" << std::endl;
             exit(EXIT_FAILURE);
         }
+
+        Resize(800, 600);
     }
 
     virtual void Display(bool auto_redraw = true)
