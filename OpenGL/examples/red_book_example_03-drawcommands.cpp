@@ -108,7 +108,7 @@ void DrawCommandExample::Display(bool auto_redraw)
     vmath::mat4 model_matrix;
 
     // Setup
-    glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);             //open culling
     glDisable(GL_DEPTH_TEST);
 
     glClearBufferfv(GL_COLOR, 0, black);
