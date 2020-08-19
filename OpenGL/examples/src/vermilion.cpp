@@ -36,8 +36,8 @@ unsigned int VermilionApplication::app_time()
     struct timeval  currentTime;
     gettimeofday(&currentTime, nullptr);
 
-    return (unsigned int)(currentTime.tv_sec - m_appStartTime.tv_sec);
-    //return 0;
+    return (unsigned int)(1000000*(currentTime.tv_sec - m_appStartTime.tv_sec) 
+            + (currentTime.tv_usec - m_appStartTime.tv_usec));
 #endif
 }
 

@@ -7,6 +7,8 @@ using namespace std;
 
 #include "LoadShaders.h"
 
+//#define USE_PRIMITIVE_RESTART
+
 BEGIN_APP_DECLARATION(PrimitiveRestartExample)
     // Override functions from base class
     virtual void Initialize(const char * title);
@@ -26,7 +28,7 @@ BEGIN_APP_DECLARATION(PrimitiveRestartExample)
 
 END_APP_DECLARATION()
 
-DEFINE_APP(PrimitiveRestartExample, "Drawing Commands Example")
+DEFINE_APP(PrimitiveRestartExample, "Primitive Restart Example")
 
 void PrimitiveRestartExample::Initialize(const char * title)
 {
@@ -118,7 +120,7 @@ void PrimitiveRestartExample::Initialize(const char * title)
 }
 void PrimitiveRestartExample::Display(bool auto_redraw)
 {
-    float t = float(app_time() & 0x1FFF) / float(0x1FFF) * 20.0;
+    float t = float(app_time() & 0x1FFF) / float(0x1FFF) * 100.0;
     //cout << "app_time(), t = " << app_time() << endl; 
     static const vmath::vec3 X(1.0f, 0.0f, 0.0f);
     static const vmath::vec3 Y(0.0f, 1.0f, 0.0f);
@@ -143,14 +145,19 @@ void PrimitiveRestartExample::Display(bool auto_redraw)
     // Set up for a glDrawElements call
     glBindVertexArray(vao[0]);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo[0]);
-    
-    //// Without primitive restart, we need to call two draw commands
-    //glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, NULL);
-    //glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, (const GLvoid *)(9 * sizeof(GLushort)));
+                    
+    glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+
+#ifdef USE_PRIMITIVE_RESTART
     // When primitive restart is on, we can call one draw command
     glEnable(GL_PRIMITIVE_RESTART);
     glPrimitiveRestartIndex(0xFFFF);
     glDrawElements(GL_TRIANGLE_STRIP, 17, GL_UNSIGNED_SHORT, NULL);
+#else
+    // Without primitive restart, we need to call two draw commands
+    glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, NULL);
+    glDrawElements(GL_TRIANGLE_STRIP, 8, GL_UNSIGNED_SHORT, (const GLvoid *)(9 * sizeof(GLushort)));
+#endif
 
     base::Display();
 }

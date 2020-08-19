@@ -76,7 +76,37 @@ bool VBObject::LoadFromVBM(const char * filename, int vertexIndex, int normalInd
         total_data_size += m_attrib[i].components * sizeof(GLfloat) * m_header.num_vertices;
     }
 
-    glBufferData(GL_ARRAY_BUFFER, total_data_size, raw_data, GL_STATIC_DRAW);
+    // Debug:  (-52.7, 66.5, -57.7, 1) --> (-0.8316, 0.6851, -0.9109)  
+    GLfloat * new_raw_data = (GLfloat *)raw_data;
+    GLfloat max_ = -9999.0f;
+    GLfloat min_ = 9999.0f;
+    for (i = 0; i < m_attrib[0].components*m_header.num_vertices; ++i)
+    {
+        if (new_raw_data[i] > max_)
+            max_ = new_raw_data[i];
+        if (new_raw_data[i] < min_)
+            min_ = new_raw_data[i];
+    }
+
+    min_ = -min_;   // negative to positive;
+    for (i = 0; i < m_attrib[0].components*m_header.num_vertices; i = i+4)
+    {
+        if (new_raw_data[i+0] < 0.0f)
+            new_raw_data[i+0] = new_raw_data[i+0]/min_;
+        else
+            new_raw_data[i+0] = new_raw_data[i+0]/max_;
+        if (new_raw_data[i+1] < 0.0f)
+            new_raw_data[i+1] = new_raw_data[i+1]/min_;
+        else
+            new_raw_data[i+1] = new_raw_data[i+1]/max_;
+        if (new_raw_data[i+2] < 0.0f)
+            new_raw_data[i+2] = new_raw_data[i+2]/min_;
+        else
+            new_raw_data[i+2] = new_raw_data[i+2]/max_;
+    }
+
+    //glBufferData(GL_ARRAY_BUFFER, total_data_size, raw_data, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, total_data_size, new_raw_data, GL_STATIC_DRAW);
 
     total_data_size = 0;
 
@@ -187,16 +217,30 @@ void VBObject::Render(unsigned int frame_index, unsigned int instances)
     else
     */
     {
-        if (instances) {
+        if (instances) 
+        {
             if (m_header.num_indices)
-                glDrawElementsInstanced(GL_TRIANGLES, m_frame[frame_index].count, GL_UNSIGNED_INT, (GLvoid *)(m_frame[frame_index].first * sizeof(GLuint)), instances);
+            {
+                glDrawElementsInstanced(GL_TRIANGLES, m_frame[frame_index].count, GL_UNSIGNED_INT, 
+                                (GLvoid *)(m_frame[frame_index].first * sizeof(GLuint)), instances);
+            }
             else
-                glDrawArraysInstanced(GL_TRIANGLES, m_frame[frame_index].first, m_frame[frame_index].count, instances);
-        } else {
+            {
+                glDrawArraysInstanced(GL_TRIANGLES, m_frame[frame_index].first, 
+                                        m_frame[frame_index].count, instances);
+            }
+        } 
+        else 
+        {
             if (m_header.num_indices)
-                glDrawElements(GL_TRIANGLES, m_frame[frame_index].count, GL_UNSIGNED_INT, (GLvoid *)(m_frame[frame_index].first * sizeof(GLuint)));
+            {
+                glDrawElements(GL_TRIANGLES, m_frame[frame_index].count, GL_UNSIGNED_INT, 
+                        (GLvoid *)(m_frame[frame_index].first * sizeof(GLuint)));
+            }
             else
+            {
                 glDrawArrays(GL_TRIANGLES, m_frame[frame_index].first, m_frame[frame_index].count);
+            }
         }
     }
     glBindVertexArray(0);
