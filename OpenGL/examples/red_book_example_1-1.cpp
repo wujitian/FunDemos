@@ -43,8 +43,8 @@ void init(void)
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     ShaderInfo shaders [] = {
-        { GL_VERTEX_SHADER, "../shaders/triangles/triangles.vert" },
-        { GL_FRAGMENT_SHADER, "../shaders/triangles/triangles.frag" },
+        { GL_VERTEX_SHADER, "../../shaders/triangles/triangles.vert" },
+        { GL_FRAGMENT_SHADER, "../../shaders/triangles/triangles.frag" },
         { GL_NONE, NULL }
     };
 

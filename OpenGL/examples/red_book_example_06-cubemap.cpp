@@ -161,7 +161,7 @@ void CubeMapExample::Initialize(const char * title)
     
     vglImageData image;
 
-    tex = vglLoadTexture("../media/TantolundenCube.dds", 0, &image);
+    tex = vglLoadTexture("../../media/TantolundenCube.dds", 0, &image);
 
     GLenum e = glGetError();
     if (e != GL_NO_ERROR)
@@ -171,7 +171,7 @@ void CubeMapExample::Initialize(const char * title)
 
     vglUnloadImage(&image);
 
-    object.LoadFromVBM("../media/torus.vbm", 0, 1, 2);
+    object.LoadFromVBM("../../media/torus.vbm", 0, 1, 2);
     
 }
 void CubeMapExample::Display(bool auto_redraw)

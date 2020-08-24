@@ -1,5 +1,13 @@
 # OpenGL
 
+./include --> 一些公共的头文件
+
+./src --> 一些公共的source文件
+
+./media --> 一些资源文件存放在这里，如图片等
+
+./shaders --> 实现的一些可复用的shader代码
+
 ./examples --> 里面是一些自己用来学习OpenGL的例子，包括《OpenGL编程精粹》和《OpenGL编程指南》中的例子。
 
 ./glfw-3.3.2/ --> 里面是下载的glfw的全部源代码。

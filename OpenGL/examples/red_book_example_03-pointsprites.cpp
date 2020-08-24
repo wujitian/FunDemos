@@ -69,9 +69,9 @@ void PointSpriteExample::Initialize(const char * title)
     
     static ShaderInfo shader_info[] =
     {
-        { GL_VERTEX_SHADER, "../shaders/pointsprites/pointsprites.vs.glsl", 0 },
-        { GL_FRAGMENT_SHADER, "../shaders/pointsprites/pointsprites.fs.glsl", 0 },
-        //{ GL_FRAGMENT_SHADER, "../shaders/pointsprites/pointsprites2.fs.glsl", 0 },
+        { GL_VERTEX_SHADER, "../../shaders/pointsprites/pointsprites.vs.glsl", 0 },
+        { GL_FRAGMENT_SHADER, "../../shaders/pointsprites/pointsprites.fs.glsl", 0 },
+        //{ GL_FRAGMENT_SHADER, "../../shaders/pointsprites/pointsprites2.fs.glsl", 0 },
         { GL_NONE, NULL, 0 }
     };
 

@@ -3,18 +3,22 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.14)
 
 set(TARGET_NAME example)
 
+set(SOURCE_FILE ../src/*.c ../src/*.cpp)
+
 #file(GLOB SRC_LIST example14.c)
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_1-1.cpp)
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_01-keypress.cpp)
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-drawcommands.cpp)
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-pointsprites.cpp)
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-primitiverestart.cpp)
-file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_03-instancing.cpp)    # not finish
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_04-gouraud.cpp)    # not finish
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-load-texture.cpp) 
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-multitexture.cpp) 
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_06-cubemap.cpp) 
-#file(GLOB SRC_LIST src/*.c src/*.cpp red_book_example_09-teapot.cpp) 
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_1-1.cpp)
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_01-keypress.cpp)
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_03-drawcommands.cpp)
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_03-pointsprites.cpp)
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_03-primitiverestart.cpp)
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_03-instancing.cpp) 
+file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_03-xfb.cpp)    
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_04-gouraud.cpp)    
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_04-shadowmap.cpp)   #not finish 
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_06-load-texture.cpp) 
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_06-multitexture.cpp) 
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_06-cubemap.cpp) 
+#file(GLOB SRC_LIST ${SOURCE_FILE} red_book_example_09-teapot.cpp) 
 
 set(HELLO_BINARY_DIR "FabioKong test.")
 
@@ -34,7 +38,7 @@ add_definitions("-D_DEBUG")
 ADD_EXECUTABLE(${TARGET_NAME} ${SRC_LIST})
 
 include_directories(
-    ./include
+    ../include
     ../glfw-3.3.2/include
 )
 

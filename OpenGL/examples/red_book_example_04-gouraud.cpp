@@ -51,8 +51,8 @@ void GouraudExample::Initialize(const char * title)
                   vertices, GL_STATIC_DRAW );
     
     ShaderInfo  shaders[] = {
-        { GL_VERTEX_SHADER, "../shaders/gouraud/gouraud.vert" },
-        { GL_FRAGMENT_SHADER, "../shaders/gouraud/gouraud.frag" },
+        { GL_VERTEX_SHADER, "../../shaders/gouraud/gouraud.vert" },
+        { GL_FRAGMENT_SHADER, "../../shaders/gouraud/gouraud.frag" },
         { GL_NONE, NULL }
     };
 
@@ -84,13 +84,10 @@ void GouraudExample::OnKey(int key, int scancode, int action, int mods)
 {
     if (action == GLFW_PRESS)
     {
-        cout << "Detect key." << endl;
         switch (key)
         {
-            cout << "key =" << key << endl;
             case GLFW_KEY_M:
             {
-                cout << "Yes, It's m." << endl;
                 static GLenum mode = GL_FILL;
 
                 mode = (mode == GL_FILL ? GL_LINE : GL_FILL);

@@ -116,14 +116,14 @@ void MultiTextureExample::Initialize(const char * title)
     
     vglImageData image;
 
-    tex1 = vglLoadTexture("../media/test.dds", 0, &image);
+    tex1 = vglLoadTexture("../../media/test.dds", 0, &image);
 
     glBindTexture(image.target, tex1);
     glTexParameteri(image.target, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
     vglUnloadImage(&image);
     
-    tex2 = vglLoadTexture("../media/test3.dds", 0, &image);
+    tex2 = vglLoadTexture("../../media/test3.dds", 0, &image);
 
     vglUnloadImage(&image);
 }

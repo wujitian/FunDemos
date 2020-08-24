@@ -53,10 +53,10 @@ void TeapotExample::Initialize(const char * title)
     
     // Load shaders and use the resulting shader program
     ShaderInfo  shaders[] = {
-        { GL_VERTEX_SHADER,          "../shaders/teapot/teapot.vert" },
-        { GL_TESS_CONTROL_SHADER,    "../shaders/teapot/teapot.cont" },
-        { GL_TESS_EVALUATION_SHADER, "../shaders/teapot/teapot.eval" },
-        { GL_FRAGMENT_SHADER,        "../shaders/teapot/teapot.frag" },
+        { GL_VERTEX_SHADER,          "../../shaders/teapot/teapot.vert" },
+        { GL_TESS_CONTROL_SHADER,    "../../shaders/teapot/teapot.cont" },
+        { GL_TESS_EVALUATION_SHADER, "../../shaders/teapot/teapot.eval" },
+        { GL_FRAGMENT_SHADER,        "../../shaders/teapot/teapot.frag" },
         { GL_NONE, NULL }
     };
 
