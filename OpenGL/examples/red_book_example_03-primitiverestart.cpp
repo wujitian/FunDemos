@@ -37,8 +37,8 @@ void PrimitiveRestartExample::Initialize(const char * title)
     
     static ShaderInfo shader_info[] =
     {
-        { GL_VERTEX_SHADER, "../../shaders/primitive_restart/primitive_restart.vs.glsl" },
-        { GL_FRAGMENT_SHADER, "../../shaders/primitive_restart/primitive_restart.fs.glsl" },
+        { GL_VERTEX_SHADER, "../shaders/primitive_restart/primitive_restart.vs.glsl" },
+        { GL_FRAGMENT_SHADER, "../shaders/primitive_restart/primitive_restart.fs.glsl" },
         { GL_NONE, NULL }
     };
 

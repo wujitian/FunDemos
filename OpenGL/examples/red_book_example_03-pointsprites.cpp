@@ -58,7 +58,7 @@ void PointSpriteExample::Initialize(const char * title)
     glBindTexture(GL_TEXTURE_2D, sprite_texture);           // 2D  -->  sampler2D
     
     // new a buffer in load_targa. so need delete outside the function.
-    data = load_targa("../media/sprite.tga", format, width, height);
+    data = load_targa("../../media/sprite.tga", format, width, height);
     
     // changable texture allocate function.
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, format, GL_UNSIGNED_BYTE, data);
@@ -69,9 +69,9 @@ void PointSpriteExample::Initialize(const char * title)
     
     static ShaderInfo shader_info[] =
     {
-        { GL_VERTEX_SHADER, "../../shaders/pointsprites/pointsprites.vs.glsl", 0 },
-        { GL_FRAGMENT_SHADER, "../../shaders/pointsprites/pointsprites.fs.glsl", 0 },
-        //{ GL_FRAGMENT_SHADER, "../../shaders/pointsprites/pointsprites2.fs.glsl", 0 },
+        { GL_VERTEX_SHADER, "../shaders/pointsprites/pointsprites.vs.glsl", 0 },
+        { GL_FRAGMENT_SHADER, "../shaders/pointsprites/pointsprites.fs.glsl", 0 },
+        //{ GL_FRAGMENT_SHADER, "../shaders/pointsprites/pointsprites2.fs.glsl", 0 },
         { GL_NONE, NULL, 0 }
     };
 

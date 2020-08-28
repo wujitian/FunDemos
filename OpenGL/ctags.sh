@@ -28,6 +28,8 @@ else
               ./examples/ \
               ./glfw-3.3.2/src/ \
               ./glfw-3.3.2/include/ \
+              ./src/ \
+              ./include/ \
               --c++-kinds=+p --fields=+iaS --${EXTRA_CMD}=+q
 fi
 

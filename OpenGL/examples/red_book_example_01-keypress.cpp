@@ -47,8 +47,8 @@ void KeyPressExample::Initialize(const char * title)
                   vertices, GL_STATIC_DRAW );
     
     ShaderInfo  shaders[] = {
-        { GL_VERTEX_SHADER, "../../shaders/keypress/keypress.vert" },
-        { GL_FRAGMENT_SHADER, "../../shaders/keypress/keypress.frag" },
+        { GL_VERTEX_SHADER, "../shaders/keypress/keypress.vert" },
+        { GL_FRAGMENT_SHADER, "../shaders/keypress/keypress.frag" },
         { GL_NONE, NULL }
     };
     

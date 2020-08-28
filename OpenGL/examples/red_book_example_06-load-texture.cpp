@@ -100,7 +100,7 @@ void LoadTextureExample::Initialize(const char * title)
     
     vglImageData image;
 
-    tex = vglLoadTexture("../media/test.dds", 0, &image);
+    tex = vglLoadTexture("../../media/test.dds", 0, &image);
 
     glTexParameteri(image.target, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 

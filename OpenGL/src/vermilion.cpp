@@ -14,7 +14,7 @@ void VermilionApplication::window_size_callback(GLFWwindow* window, int width, i
 void VermilionApplication::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     VermilionApplication* pThis = (VermilionApplication*)glfwGetWindowUserPointer(window);
-    std::cout << "[Key Prss] Key:" << key << "(" << char(key) << ")" << " Press:" << action << " Mods:" << mods << std::endl;
+    std::cout << "[Key Press] Key:" << key << "(" << char(key) << ")" << " Press:" << action << " Mods:" << mods << std::endl;
 
     pThis->OnKey(key, scancode, action, mods);
 }

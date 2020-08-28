@@ -51,8 +51,8 @@ void GouraudExample::Initialize(const char * title)
                   vertices, GL_STATIC_DRAW );
     
     ShaderInfo  shaders[] = {
-        { GL_VERTEX_SHADER, "../../shaders/gouraud/gouraud.vert" },
-        { GL_FRAGMENT_SHADER, "../../shaders/gouraud/gouraud.frag" },
+        { GL_VERTEX_SHADER, "../shaders/gouraud/gouraud.vert" },
+        { GL_FRAGMENT_SHADER, "../shaders/gouraud/gouraud.frag" },
         { GL_NONE, NULL }
     };
 
