@@ -367,7 +367,6 @@ void MagicCube::Move_R3(void)
 
 void MagicCube::Move_B1(void)
 {
-    cout << "Move_B1 get in." << endl;
     if (!CanMove()) return;
     SwithID_ClockWise(20, 19, 18, 23, 22, 21, 26, 25, 24);
     for (int i = 18; i < 27; ++i)
@@ -392,7 +391,6 @@ void MagicCube::Move_B3(void)
 
 void MagicCube::Move_D1(void)
 {
-    cout << "Move_D1 get in." << endl;
     if (!CanMove()) return;
     SwithID_ClockWise(6, 7, 8, 15, 16, 17, 24, 25, 26);
     for (int i = 0; i < 27; i = i+9)
