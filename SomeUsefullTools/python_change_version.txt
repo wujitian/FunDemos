@@ -11,3 +11,19 @@ update-alternatives --list python
 
 change:
 update-alternatives --config python
+
+# install python2.7 when use anaconda
+## python27 is name
+conda create -n python27 python=2.7
+
+# To activate this environment, use
+#
+#     $ conda activate python27
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+
+# pip speedup --> write in .bashrc
+alias pyinstall='pip install -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com ' 

@@ -16,13 +16,17 @@
 
 ./GLTools/ --> 《OpenGL超级宝典》需要的代码，但目前没有调试成功。
 
+./demos/ --> 一些有趣的demo
+	--> MagicCube, 魔方程序，可以玩
+	--> WanHuaTong, 打算做一个万花筒的程序，未完成
+
 
 glfw的编译过程:
 首先修改CMakeList.txt使之编译动态库
 然后进入到编译好的libglfw.so所在目标
 执行:
 sudo ln -s libglfw.so.3.3 /usr/lib/libglfw.so.3
-sudo ln -s /usr/lib/libglfw.so /usr/lib/libglfw.so.3
+sudo ln -s /usr/lib/libglfw.so.3 /usr/lib/libglfw.so
 
 如何编译带有debug信息的libglfw.so:
 先建立build文件夹，然后进入build中执行cmake ..

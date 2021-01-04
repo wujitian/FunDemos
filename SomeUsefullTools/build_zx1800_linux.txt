@@ -1,0 +1,24 @@
+# build_zx1800_linux.txt
+# Created Time: 2020-04-02 14:51:27
+# Last modified: 2020-04-02 15:14:15
+#
+
+1. arm-none-linux-gnueabi-gcc : Not found command
+need a tool, in /home/fabio/software, CodeSource.tar.gz
+unpack in /opt
+and add this to ./bashrc
+# arm-none-linux-gnueabi
+export PATH=/opt/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_GNU_Linux/bin:$PATH
+
+2. use arm-none-linux-gnueabi-gcc -v to check if it is useful.
+if Not, try:
+    apt-get install libc6:i386
+
+3. in edtv_ZX1800_DVB_Linux/project, 
+    ./configure arm
+    make
+
+4. also make in android_kernel_3.18
+
+5. mkimage command not found
+    apt-get install u-boot-tools
